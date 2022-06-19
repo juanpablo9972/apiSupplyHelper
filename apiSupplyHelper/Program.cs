@@ -24,6 +24,7 @@ builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSet
 builder.Services.AddScoped<IJwtUtils, JwtUtils>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IServicioCategoriaProducto, ServicioCategoriaProducto>();
+builder.Services.AddScoped<IServicioCategoriaServicio, ServicioCategoriaServicio>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
