@@ -1,4 +1,5 @@
 ﻿using apiSupplyHelper.ContactoExterno.Modelos;
+using apiSupplyHelper.DetalleProveedor.Modelos;
 
 namespace apiSupplyHelper.Proveedores.Modelos
 {
@@ -13,5 +14,7 @@ namespace apiSupplyHelper.Proveedores.Modelos
         public int CodigoPostal { get; set; }
 
         public List<Agente>? Agentes { get; set; }
+        public List<ProductoProveedor>? ProductoProveedores { get; set; }
+        public List<ServicioProveedor>? ServicioProveedores { get; set; }
     }
 }

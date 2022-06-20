@@ -6,6 +6,7 @@ using apiSupplyHelper.Servicios.Modelos;
 using apiSupplyHelper.Proveedores.Modelos;
 using Microsoft.EntityFrameworkCore;
 using apiSupplyHelper.DetalleProveedor.Modelos;
+using apiSupplyHelper.Detalle_Pedido.Modelos;
 
 namespace apiSupplyHelper.Helpers;
 
@@ -33,5 +34,6 @@ public class DataContext : DbContext
     public DbSet<Proveedor> Proveedoress { get; set; }
     public DbSet<ProductoProveedor> ProductoProveedores { get; set; }
     public DbSet<ServicioProveedor> ServicioProveedores { get; set; }
+    public DbSet<Pedido> Pedidos { get; set; }
 
 }
