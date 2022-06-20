@@ -1,6 +1,7 @@
 using apiSupplyHelper.Autorizacion;
 using apiSupplyHelper.Categorias.Servicios;
 using apiSupplyHelper.Helpers;
+using apiSupplyHelper.Productos.Servicios;
 using apiSupplyHelper.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,6 +26,7 @@ builder.Services.AddScoped<IJwtUtils, JwtUtils>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IServicioCategoriaProducto, ServicioCategoriaProducto>();
 builder.Services.AddScoped<IServicioCategoriaServicio, ServicioCategoriaServicio>();
+builder.Services.AddScoped<IServicioProducto, ServicioProducto >();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

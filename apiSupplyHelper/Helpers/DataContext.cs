@@ -1,5 +1,6 @@
 ﻿using apiSupplyHelper.Categorias.Modelos;
 using apiSupplyHelper.Data.Models.Auth;
+using apiSupplyHelper.Productos.Modelos;
 using Microsoft.EntityFrameworkCore;
 
 namespace apiSupplyHelper.Helpers;
@@ -22,4 +23,6 @@ public class DataContext : DbContext
     public DbSet<User> Users { get; set; }
     public DbSet<CategoriaProducto> CategoriaProductos { get; set; }
     public DbSet<CategoriaServicio> CategoriaServicios { get; set; }
+    public DbSet<Producto> Products { get; set; }
+
 }

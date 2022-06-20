@@ -8,7 +8,7 @@ namespace apiSupplyHelper.Categorias.Controlador;
 [Authorize]
 [ApiController]
 [Route("[controller]")]
-public class CategoriaServicioController : Controller
+public class CategoriaServicioController : ControllerBase
 {
     private IServicioCategoriaServicio _servicioCategoriaServicio;
     public CategoriaServicioController(IServicioCategoriaServicio servicioCategoriaServicio)
