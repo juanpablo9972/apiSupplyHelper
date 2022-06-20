@@ -10,4 +10,5 @@ public class Pedido
 
     public int UserId { get; set; }
     public User? User { get; set; }
+    public List<detallePedidoProducto>? detallePedidoProductos { get; set; }
 }

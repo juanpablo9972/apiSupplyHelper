@@ -38,6 +38,7 @@ builder.Services.AddScoped<IServicioProveedor, ServicioProveedor>();
 builder.Services.AddScoped<IServicioProductoProveedor, ServicioProductoProveedor>();
 builder.Services.AddScoped<IServicioServicioProveedor, ServicioServicioProveedor>();
 builder.Services.AddScoped<IServicioPedido, ServicioPedido>();
+builder.Services.AddScoped<IServicioDetallePedidoProducto, ServicioDetallePedidoProducto>();
 
 
 

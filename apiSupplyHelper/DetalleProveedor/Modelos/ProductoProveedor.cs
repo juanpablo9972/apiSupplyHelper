@@ -1,4 +1,5 @@
-﻿using apiSupplyHelper.Productos.Modelos;
+﻿using apiSupplyHelper.Detalle_Pedido.Modelos;
+using apiSupplyHelper.Productos.Modelos;
 using apiSupplyHelper.Proveedores.Modelos;
 
 namespace apiSupplyHelper.DetalleProveedor.Modelos;
@@ -15,4 +16,6 @@ public class ProductoProveedor
     public int ProductoId { get; set; }
     public Proveedor? Proveedor { get; set; }
     public Producto? Producto { get; set; }
+
+    public List<detallePedidoProducto>? detallePedidoProductos { get; set; }
 }

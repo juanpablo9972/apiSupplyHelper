@@ -8,7 +8,7 @@ namespace apiSupplyHelper.Detalle_Pedido.Controlador;
 [Authorize]
 [ApiController]
 [Route("[controller]")]
-public class PedidoController : Controller
+public class PedidoController : ControllerBase
 {
     private IServicioPedido _servicioPedido;
     public PedidoController(IServicioPedido servicioPedido)

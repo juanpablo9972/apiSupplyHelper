@@ -1,4 +1,5 @@
 ﻿using apiSupplyHelper.Categorias.Modelos;
+using apiSupplyHelper.DetalleProveedor.Modelos;
 
 namespace apiSupplyHelper.Servicios.Modelos
 {
@@ -11,5 +12,7 @@ namespace apiSupplyHelper.Servicios.Modelos
         public int CategoriaServicioId { get; set; }
 
         public CategoriaServicio? CategoriaServicio { get; set; }
+
+        public List<ServicioProveedor>? ServicioProveedores { get; set; }
     }
 }
