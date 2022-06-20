@@ -3,6 +3,7 @@ using apiSupplyHelper.Categorias.Servicios;
 using apiSupplyHelper.Helpers;
 using apiSupplyHelper.Productos.Servicios;
 using apiSupplyHelper.Services;
+using apiSupplyHelper.Servicios.Servicioss;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,6 +28,7 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IServicioCategoriaProducto, ServicioCategoriaProducto>();
 builder.Services.AddScoped<IServicioCategoriaServicio, ServicioCategoriaServicio>();
 builder.Services.AddScoped<IServicioProducto, ServicioProducto >();
+builder.Services.AddScoped<IServicioServicio, ServicioServicio>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

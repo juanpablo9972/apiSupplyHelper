@@ -1,8 +1,12 @@
-﻿namespace apiSupplyHelper.Categorias.Modelos;
+﻿using apiSupplyHelper.Servicios.Modelos;
+
+namespace apiSupplyHelper.Categorias.Modelos;
 
 public class CategoriaServicio
 {
     public int Id { get; set; }
     public string Nombre { get; set; }
     public string Descripcion { get; set; }
+
+    public List<Serviciosss>? Serviciosss { get; set; }
 }

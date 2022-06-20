@@ -11,9 +11,9 @@ namespace apiSupplyHelper.Productos.Controlador;
 public class ProductoController : ControllerBase
 {
     private IServicioProducto _servicioProducto;
-    public ProductoController(IServicioProducto servicioCategoriaProducto)
+    public ProductoController(IServicioProducto servicioProducto)
     {
-        _servicioProducto = servicioCategoriaProducto;
+        _servicioProducto = servicioProducto;
     }
 
     [Authorize(Role.Admin, Role.Empleado)]
