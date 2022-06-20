@@ -1,4 +1,5 @@
 ﻿using apiSupplyHelper.Categorias.Modelos;
+using apiSupplyHelper.ContactoExterno.Modelos;
 using apiSupplyHelper.Data.Models.Auth;
 using apiSupplyHelper.Productos.Modelos;
 using apiSupplyHelper.Servicios.Modelos;
@@ -26,5 +27,6 @@ public class DataContext : DbContext
     public DbSet<CategoriaServicio> CategoriaServicios { get; set; }
     public DbSet<Producto> Products { get; set; }
     public DbSet<Serviciosss> Servicess { get; set; }
+    public DbSet<Agente> Agentes { get; set; }
 
 }

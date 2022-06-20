@@ -1,5 +1,6 @@
 using apiSupplyHelper.Autorizacion;
 using apiSupplyHelper.Categorias.Servicios;
+using apiSupplyHelper.ContactoExterno.Servicios;
 using apiSupplyHelper.Helpers;
 using apiSupplyHelper.Productos.Servicios;
 using apiSupplyHelper.Services;
@@ -29,6 +30,7 @@ builder.Services.AddScoped<IServicioCategoriaProducto, ServicioCategoriaProducto
 builder.Services.AddScoped<IServicioCategoriaServicio, ServicioCategoriaServicio>();
 builder.Services.AddScoped<IServicioProducto, ServicioProducto >();
 builder.Services.AddScoped<IServicioServicio, ServicioServicio>();
+builder.Services.AddScoped<IServicioAgente, ServicioAgente>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
