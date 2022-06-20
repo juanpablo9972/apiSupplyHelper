@@ -12,7 +12,7 @@ public class AutoMapperProfile : Profile
 
         // RegisterRequest -> User
         CreateMap<RegisterRequest, User>()
-            .ForMember(m => m.Role, o => o.MapFrom(_ => Role.User));
+            .ForMember(m => m.Role, o => o.MapFrom(_ => Role.Admin));
 
         // UpdateRequest -> User
         CreateMap<UpdateRequest, User>()

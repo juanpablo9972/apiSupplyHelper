@@ -1,4 +1,6 @@
-﻿namespace apiSupplyHelper.ContactoExterno.Modelos
+﻿using apiSupplyHelper.Proveedores.Modelos;
+
+namespace apiSupplyHelper.ContactoExterno.Modelos
 {
     public class Agente
     {
@@ -7,5 +9,7 @@
         public string Apellido { get; set; }
         public string Telefono { get; set; }
         public string Correo { get; set; }
+        public int ProveedorId { get; set; }
+        public Proveedor? Proveedor { get; set; }
     }
 }

@@ -4,87 +4,86 @@ using apiSupplyHelper.ContactoExterno.Modelos;
 using apiSupplyHelper.Helpers;
 using AutoMapper;
 
-namespace apiSupplyHelper.ContactoExterno.Servicios
+namespace apiSupplyHelper.ContactoExterno.Servicios;
+
+public interface IServicioAgente
 {
-    public interface IServicioAgente
+    // AuthenticateResponse Authenticate(AuthenticateRequest model);
+    IEnumerable<Agente> GetAll();
+    Agente GetById(int id);
+    void Register(DTOAgente model);
+    void Update(int id, DTOAgente model);
+    void Delete(int id);
+}
+
+public class ServicioAgente: IServicioAgente
+{
+    private DataContext _context;
+    private IJwtUtils _jwtUtils;
+    private readonly IMapper _mapper;
+
+    public ServicioAgente(
+        DataContext context,
+        IJwtUtils jwtUtils,
+        IMapper mapper)
     {
-        // AuthenticateResponse Authenticate(AuthenticateRequest model);
-        IEnumerable<Agente> GetAll();
-        Agente GetById(int id);
-        void Register(DTOAgente model);
-        void Update(int id, DTOAgente model);
-        void Delete(int id);
+        _context = context;
+        _jwtUtils = jwtUtils;
+        _mapper = mapper;
     }
 
-    public class ServicioAgente: IServicioAgente
+
+    public IEnumerable<Agente> GetAll()
     {
-        private DataContext _context;
-        private IJwtUtils _jwtUtils;
-        private readonly IMapper _mapper;
+        return _context.Agentes;
+    }
 
-        public ServicioAgente(
-            DataContext context,
-            IJwtUtils jwtUtils,
-            IMapper mapper)
-        {
-            _context = context;
-            _jwtUtils = jwtUtils;
-            _mapper = mapper;
-        }
+    public Agente GetById(int id)
+    {
+        return GetAgente(id);
+    }
 
+    public void Register(DTOAgente model)
+    {
+        // validate
+        if (_context.Agentes.Any(x => x.Nombre == model.Nombre) && _context.Agentes.Any(x => x.Apellido == model.Apellido) && _context.Agentes.Any(x => x.Telefono == model.Telefono))
+            throw new AppException("Agente '" + model.Nombre + "' ya existe");
 
-        public IEnumerable<Agente> GetAll()
-        {
-            return _context.Agentes;
-        }
+        // map model to new user object
+        var user = _mapper.Map<Agente>(model);
 
-        public Agente GetById(int id)
-        {
-            return GetAgente(id);
-        }
+        // save user
+        _context.Agentes.Add(user);
+        _context.SaveChanges();
+    }
 
-        public void Register(DTOAgente model)
-        {
-            // validate
-            if (_context.Agentes.Any(x => x.Nombre == model.Nombre) && _context.Agentes.Any(x => x.Apellido == model.Apellido) && _context.Agentes.Any(x => x.Telefono == model.Telefono))
-                throw new AppException("Agente '" + model.Nombre + "' ya existe");
+    public void Update(int id, DTOAgente model)
+    {
+        var user = GetAgente(id);
 
-            // map model to new user object
-            var user = _mapper.Map<Agente>(model);
+        // validate
+        if (model.Nombre != user.Nombre && _context.Agentes.Any(x => x.Nombre == model.Nombre))
+            throw new AppException("Agente'" + model.Nombre + "' ya existe");
 
-            // save user
-            _context.Agentes.Add(user);
-            _context.SaveChanges();
-        }
+        // copy model to user and save
+        _mapper.Map(model, user);
+        _context.Agentes.Update(user);
+        _context.SaveChanges();
+    }
 
-        public void Update(int id, DTOAgente model)
-        {
-            var user = GetAgente(id);
+    public void Delete(int id)
+    {
+        var user = GetAgente(id);
+        _context.Agentes.Remove(user);
+        _context.SaveChanges();
+    }
 
-            // validate
-            if (model.Nombre != user.Nombre && _context.Agentes.Any(x => x.Nombre == model.Nombre))
-                throw new AppException("Agente'" + model.Nombre + "' ya existe");
+    // helper methods
 
-            // copy model to user and save
-            _mapper.Map(model, user);
-            _context.Agentes.Update(user);
-            _context.SaveChanges();
-        }
-
-        public void Delete(int id)
-        {
-            var user = GetAgente(id);
-            _context.Agentes.Remove(user);
-            _context.SaveChanges();
-        }
-
-        // helper methods
-
-        private Agente GetAgente(int id)
-        {
-            var user = _context.Agentes.Find(id);
-            if (user == null) throw new KeyNotFoundException("Agente no encontrado");
-            return user;
-        }
+    private Agente GetAgente(int id)
+    {
+        var user = _context.Agentes.Find(id);
+        if (user == null) throw new KeyNotFoundException("Agente no encontrado");
+        return user;
     }
 }

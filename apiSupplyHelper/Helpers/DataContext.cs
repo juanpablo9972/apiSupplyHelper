@@ -3,7 +3,9 @@ using apiSupplyHelper.ContactoExterno.Modelos;
 using apiSupplyHelper.Data.Models.Auth;
 using apiSupplyHelper.Productos.Modelos;
 using apiSupplyHelper.Servicios.Modelos;
+using apiSupplyHelper.Proveedores.Modelos;
 using Microsoft.EntityFrameworkCore;
+using apiSupplyHelper.DetalleProveedor.Modelos;
 
 namespace apiSupplyHelper.Helpers;
 
@@ -28,5 +30,7 @@ public class DataContext : DbContext
     public DbSet<Producto> Products { get; set; }
     public DbSet<Serviciosss> Servicess { get; set; }
     public DbSet<Agente> Agentes { get; set; }
+    public DbSet<Proveedor> Proveedoress { get; set; }
+    public DbSet<ProductoProveedor> ProductoProveedores { get; set; }
 
 }
