@@ -5,22 +5,23 @@ using apiSupplyHelper.DetalleProveedor.Servicios;
 using Microsoft.AspNetCore.Mvc;
 
 namespace apiSupplyHelper.DetalleProveedor.Controlador;
+
 [Authorize]
 [ApiController]
 [Route("[controller]")]
-public class ProductoProveedorController : ControllerBase
+public class ServicioProveedorController: ControllerBase
 {
-    private IServicioProductoProveedor _servicioProductoProveedor;
-    public ProductoProveedorController(IServicioProductoProveedor servicioProductoProveedor)
+    private IServicioServicioProveedor _servicioServicioProveedor;
+    public ServicioProveedorController(IServicioServicioProveedor servicioServicioProveedor)
     {
-        _servicioProductoProveedor = servicioProductoProveedor;
+        _servicioServicioProveedor = servicioServicioProveedor;
     }
 
     [Authorize(Role.Admin, Role.Empleado)]
     [HttpPost("register")]
-    public IActionResult Register(DTOProductoProveedor model)
+    public IActionResult Register(DTOServicioProveedor model)
     {
-        _servicioProductoProveedor.Register(model);
+        _servicioServicioProveedor.Register(model);
         return Ok(new { message = "" });
     }
 
@@ -28,15 +29,15 @@ public class ProductoProveedorController : ControllerBase
     [HttpGet]
     public IActionResult GetAll()
     {
-        var users = _servicioProductoProveedor.GetAll();
+        var users = _servicioServicioProveedor.GetAll();
         return Ok(users);
     }
 
     [Authorize(Role.Admin, Role.Empleado)]
     [HttpPut("{id}")]
-    public IActionResult Update(int id, DTOProductoProveedor model)
+    public IActionResult Update(int id, DTOServicioProveedor model)
     {
-        _servicioProductoProveedor.Update(id, model);
+        _servicioServicioProveedor.Update(id, model);
         return Ok(new { message = "" });
     }
 
@@ -44,7 +45,7 @@ public class ProductoProveedorController : ControllerBase
     [HttpDelete("{id}")]
     public IActionResult Delete(int id)
     {
-        _servicioProductoProveedor.Delete(id);
+        _servicioServicioProveedor.Delete(id);
         return Ok(new { message = "" });
     }
 
@@ -52,7 +53,7 @@ public class ProductoProveedorController : ControllerBase
     [HttpGet("{id:int}")]
     public IActionResult GetById(int id)
     {
-        var user = _servicioProductoProveedor.GetById(id);
+        var user = _servicioServicioProveedor.GetById(id);
         return Ok(user);
     }
 }

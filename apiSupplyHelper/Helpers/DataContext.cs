@@ -32,5 +32,6 @@ public class DataContext : DbContext
     public DbSet<Agente> Agentes { get; set; }
     public DbSet<Proveedor> Proveedoress { get; set; }
     public DbSet<ProductoProveedor> ProductoProveedores { get; set; }
+    public DbSet<ServicioProveedor> ServicioProveedores { get; set; }
 
 }

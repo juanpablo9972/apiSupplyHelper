@@ -35,6 +35,7 @@ builder.Services.AddScoped<IServicioServicio, ServicioServicio>();
 builder.Services.AddScoped<IServicioAgente, ServicioAgente>();
 builder.Services.AddScoped<IServicioProveedor, ServicioProveedor>();
 builder.Services.AddScoped<IServicioProductoProveedor, ServicioProductoProveedor>();
+builder.Services.AddScoped<IServicioServicioProveedor, ServicioServicioProveedor>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
